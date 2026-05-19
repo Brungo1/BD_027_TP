@@ -26,7 +26,7 @@ go
   Nombre varchar (100) not null unique 
 )
 
---Tabla de Usuarios Agregar DNI
+--Tabla de Usuarios 
 go
 Create Table Usuarios (
    IdUsuario bigint primary key not null identity (1,1),
@@ -75,16 +75,16 @@ CREATE TABLE Contenido (
   UNIQUE (Titulo, IdProductora)
   )
 
-  -- Tabla Actores tienen que ser unicos, poner un unique
+  -- Tabla Actores 
 go
 Create Table Actores(
   IdActor bigint not null primary key identity (1,1),
-  Nombre varchar(200) not null unique,
+  Nombre varchar(200) not null,
   Apellido varchar(200) not null,
   FechaNacimiento date not null check (FechaNacimiento < getdate()),
 )
 
--- contenido Actor donde trabajo (no se pueda repetir la misma combinación evita duplicados automáticamente)
+-- contenido Actor 
 go
 Create Table ContenidoActor (
   IdContenido bigint not null foreign key references Contenido(IdContenido),
@@ -130,7 +130,7 @@ Create Table Comentario (
   Fecha date not null default getdate()
 )
 
--- crear su propia playlist de sus pelis pero no puede un usuario tener mismo nombre
+-- crear su propia playlist 
 go
 Create Table Playlist (
   IdPlaylist bigint not null primary key identity (1,1),
