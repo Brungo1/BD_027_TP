@@ -1,15 +1,15 @@
 Create DataBase BD_TPI_27
-
+go  
 Use BD_TPI_27
 
 -- Tabla de Suscripcion
 go
 Create Table Suscripcion (
-   IdSuscripto bigint not null primary key identity (1,1),
+   IdSuscripcion bigint not null primary key identity (1,1),
    Nombre varchar(100) not null unique,
    Descripcion varchar(300) not null,
    Plazo int not null default 30 check (Plazo > 0),
-   Precio decimal(10,3) not null 
+   Precio decimal(10,2) not null 
 )
 
 -- Tabla de Tipo de Contenido 
@@ -33,7 +33,7 @@ Create Table Usuarios (
    NombreUsuario varchar (100) not null unique,
    Nombre varchar(50) not null,
    Apellido varchar (50) not null,
-   DNI varchar(100) not null,
+   DNI varchar(20) not null,
    Email varchar (100) not null unique check (Email LIKE '%@%.%'),
    Contraseña varchar(100) not null,
    Pais varchar(100) not null
@@ -44,9 +44,9 @@ go
 Create Table SuscripcionDelUsuario(
     Id bigint primary key not null identity(1,1),
     IdUsuario bigint not null foreign key references Usuarios (IdUsuario),
-    IdSuscripcion bigint not null foreign key references Suscripcion(IdSuscripto),
+    IdSuscripcion bigint not null foreign key references Suscripcion(IdSuscripcion),
     FechaInicio date not null default GETDATE(),
-    FechaVencimiento date not null,
+    FechaVencimiento date not null check (FechaVencimiento > FechaInicio),
     Activo Bit not null default 1
 )
 
@@ -66,7 +66,7 @@ CREATE TABLE Contenido (
   Titulo varchar(300) not null,
   Descripcion varchar(500) null,
   Duracion int not null Check (Duracion > 0),
-  FechaLanzamiento date not null check (FechaLanzamiento <= GETDATE()),
+  FechaLanzamiento date not null,
   IdGenero bigint not null foreign key references Genero(IdGenero),
   IdTipoContenido bigint not null foreign key references TipoContenido(IdTipoContenido),
   IdProductora bigint not null foreign key references Productora(IdProductora),
