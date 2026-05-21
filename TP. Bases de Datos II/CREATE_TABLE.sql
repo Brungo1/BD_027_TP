@@ -46,8 +46,9 @@ Create Table SuscripcionDelUsuario(
     IdUsuario bigint not null foreign key references Usuarios (IdUsuario),
     IdSuscripcion bigint not null foreign key references Suscripcion(IdSuscripcion),
     FechaInicio date not null default GETDATE(),
-    FechaVencimiento date not null check (FechaVencimiento > FechaInicio),
-    Activo Bit not null default 1
+    FechaVencimiento date not null,
+    Activo Bit not null default 1,
+    check (FechaVencimiento > FechaInicio)
 )
 
 -- productora
@@ -56,7 +57,7 @@ Create Table Productora(
   IdProductora bigint not null primary key identity(1,1),
   Nombre varchar(200) not null unique,
   Pais varchar(200) not null,
-  Web varchar(300) not null check (Web LIKE 'http%'),
+  Web varchar(300) not null check (Web LIKE 'http%')
 )
 
 --Tabla contenido
@@ -65,7 +66,7 @@ CREATE TABLE Contenido (
   IdContenido bigint primary key identity(1,1),
   Titulo varchar(300) not null,
   Descripcion varchar(500) null,
-  Duracion int not null Check (Duracion > 0),
+  Duracion int null Check (Duracion > 0),
   FechaLanzamiento date not null,
   IdGenero bigint not null foreign key references Genero(IdGenero),
   IdTipoContenido bigint not null foreign key references TipoContenido(IdTipoContenido),
@@ -75,13 +76,38 @@ CREATE TABLE Contenido (
   UNIQUE (Titulo, IdProductora)
   )
 
+-- Tabla Temporada
+go
+Create Table Temporada(
+  IdTemporada bigint not null primary key identity(1,1),
+  IdContenido bigint not null foreign key references Contenido(IdContenido),
+  NumeroTemporada int not null check (NumeroTemporada > 0),
+  Titulo varchar(200) null,
+  FechaLanzamiento date null,
+  Unique(IdContenido, NumeroTemporada)
+)
+
+-- Tabla Episodio
+go
+Create Table Episodio(
+  IdEpisodio bigint not null primary key identity(1,1),
+  IdTemporada bigint not null foreign key references Temporada(IdTemporada),
+  NumeroEpisodio int not null check (NumeroEpisodio > 0),
+  Titulo varchar(300) not null,
+  Descripcion varchar(500) null,
+  Duracion int not null check (Duracion > 0),
+  FechaLanzamiento date null,
+  ContadorVistas int not null default 0 check (ContadorVistas >= 0),
+  Unique(IdTemporada, NumeroEpisodio)
+)
+
   -- Tabla Actores 
 go
 Create Table Actores(
   IdActor bigint not null primary key identity (1,1),
   Nombre varchar(200) not null,
   Apellido varchar(200) not null,
-  FechaNacimiento date not null check (FechaNacimiento < getdate()),
+  FechaNacimiento date not null check (FechaNacimiento < getdate())
 )
 
 -- contenido Actor 
