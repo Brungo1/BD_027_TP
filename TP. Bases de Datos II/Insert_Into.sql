@@ -1,6 +1,6 @@
 Use BD_TPI_27
 
--- inset suscripcion
+-- insert suscripcion
 
 Insert Into Suscripcion (Nombre, Descripcion, plazo, precio)
  Values ('Básico','Acceso a contenido AudioVisual con Anuncios y calidad (720p)',30,11999.99)
@@ -143,41 +143,39 @@ select * from Contenido
 INSERT INTO Episodio (IdTemporada, NumeroEpisodio, Titulo, Descripcion, Duracion, FechaLanzamiento)
 VALUES
 
--- Stranger Things T1 (IdTemporada = 1)
+-- Stranger Things T1 
 (1, 1, 'La desaparición de Will Byers', 'Will desaparece misteriosamente en Hawkins.', 47, '2016-07-15'),
 (1, 2, 'La loca de Maple Street', 'Mike y sus amigos intentan ayudar a Eleven.', 55, '2016-07-15'),
 (1, 3, 'Luces de Navidad', 'Joyce cree que puede comunicarse con Will.', 51, '2016-07-15'),
 
--- Stranger Things T2 (IdTemporada = 2)
+-- Stranger Things T2 
 (2, 1, 'MADMAX', 'Un nuevo año escolar comienza en Hawkins.', 48, '2017-10-27'),
 (2, 2, 'Truco o trato, fenómeno', 'Will comienza a tener visiones extrañas.', 56, '2017-10-27'),
 
--- Friends T1 (IdTemporada = 5)
+-- Friends T1 
 (5, 1, 'The One Where Monica Gets a Roommate', 'Rachel aparece inesperadamente en la vida de Monica.', 22, '1994-09-22'),
 (5, 2, 'The One with the Sonogram at the End', 'Ross descubre que será padre.', 22, '1994-09-29'),
 (5, 3, 'The One with the Thumb', 'Phoebe encuentra dinero inesperadamente.', 22, '1994-10-06'),
 
--- Friends T2 (IdTemporada = 6)
+-- Friends T2 
 (6, 1, 'The One with Ross New Girlfriend', 'Ross vuelve de China con una novia.', 22, '1995-09-21'),
 (6, 2, 'The One with the Breast Milk', 'Los amigos conocen a Julie.', 22, '1995-09-28'),
 
--- Envidiosa T1 (IdTemporada = 10)
+-- Envidiosa T1 
 (10, 1, 'Comenzar de nuevo', 'Victoria replantea su vida amorosa.', 35, '2024-01-10'),
 (10, 2, 'Decisiones difíciles', 'Las tensiones aumentan entre amigos.', 36, '2024-01-17'),
 
--- El Encargado T1 (IdTemporada = 11)
+-- El Encargado T1 
 (11, 1, 'El edificio', 'El encargado controla todos los movimientos.', 30, '2022-10-26'),
 (11, 2, 'Sospechas', 'Los vecinos comienzan a desconfiar.', 31, '2022-11-02'),
 
--- Cobra Kai T1 (IdTemporada = 13)
+-- Cobra Kai T1 
 (13, 1, 'Ace Degenerate', 'Johnny reabre Cobra Kai.', 35, '2018-05-02'),
 (13, 2, 'Strike First', 'Miguel comienza su entrenamiento.', 33, '2018-05-02'),
 
--- El Eternauta T1 (IdTemporada = 16)
+-- El Eternauta T1 
 (16, 1, 'La nevada mortal', 'Buenos Aires queda paralizada por una nevada tóxica.', 50, '2025-04-30'),
 (16, 2, 'Supervivientes', 'Un grupo intenta sobrevivir al desastre.', 52, '2025-05-07');
-
-
 
 --ACTORES
 
@@ -440,24 +438,24 @@ Values
 
 Insert Into SeguirProductora (IdUsuario, IdProductora)
 Values
-(1, 4), -- Marvel / Avengers
-(1, 5), -- Sony
+(1, 4), 
+(1, 5), 
 
-(2, 3), -- Universal
-(2, 4), -- Marvel
+(2, 3), 
+(2, 4), 
 
-(4, 1), -- Warner / Batman
-(4, 5), -- Sony
+(4, 1), 
+(4, 5), 
 
-(5, 2), -- Pixar / Coco
-(5, 3), -- Universal
+(5, 2), 
+(5, 3), 
 
-(6, 5), -- Sony
-(6, 6), -- Village Roadshow
+(6, 5), 
+(6, 6), 
 
-(8, 7), -- Star Original Productions
-(8, 8), -- K&S Films
+(8, 7), 
+(8, 8), 
 
-(9, 6), -- Village Roadshow
-(9, 4); -- Marvel
+(9, 6), 
+(9, 4); 
 
