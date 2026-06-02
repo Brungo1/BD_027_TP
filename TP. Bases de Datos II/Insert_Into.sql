@@ -278,29 +278,6 @@ VALUES
 (15, 10), 
 (15, 22); 
 
-Insert Into Visualizacion (IdUsuario, IdContenido, Fecha)
-Values
-(1, 1, '2026-05-01'),
-(1, 5, '2026-05-02'),
-(2, 2, '2026-05-01'),
-(2, 13, '2026-05-03'),
-(4, 3, '2026-05-02'),
-(4, 10, '2026-05-04'),
-(5, 4, '2026-05-01'),
-(5, 11, '2026-05-05'),
-(6, 8, '2026-05-02'),
-(6, 14, '2026-05-06'),
-(8, 6, '2026-05-03'),
-(8, 7, '2026-05-04'),
-(9, 9, '2026-05-05'),
-(9, 15, '2026-05-06'),
-(1, 2, '2026-05-07'),
-(2, 5, '2026-05-07'),
-(4, 1, '2026-05-08'),
-(5, 13, '2026-05-08'),
-(6, 3, '2026-05-09'),
-(8, 10, '2026-05-09');
-
 --- FAVORITOS
 
 Insert Into Favoritos (IdUsuario, IdContenido)
@@ -459,3 +436,48 @@ Values
 (9, 6), 
 (9, 4); 
 
+-- VISUALIZACIÓN DE PELÍCULAS
+
+INSERT INTO VisualizacionPelicula (IdUsuario, IdContenido, Fecha)
+VALUES
+(1, 5, '2026-05-02'),  -- Avengers Endgame
+(2, 13, '2026-05-03'), -- Spider-Man: De regreso a casa
+(4, 3, '2026-05-02'),  -- Batman: El caballero de la noche
+(4, 10, '2026-05-04'), -- Iron Man: el hombre de hierro
+(5, 4, '2026-05-01'),  -- Coco
+(5, 11, '2026-05-05'), -- Mi villano favorito
+(6, 14, '2026-05-06'), -- Uncharted: fuera del mapa
+(9, 15, '2026-05-06'), -- Sherlock Holmes
+(2, 5, '2026-05-07'),  -- Avengers Endgame
+(5, 13, '2026-05-08'), -- Spider-Man: De regreso a casa
+(6, 3, '2026-05-09'),  -- Batman: El caballero de la noche
+(8, 10, '2026-05-09'); -- Iron Man: el hombre de hierro
+
+-- VISUALIZACIÓN DE EPISODIOS (SERIES)
+
+INSERT INTO VisualizacionEpisodio (IdUsuario, IdEpisodio, Fecha)
+VALUES
+
+-- Usuario 1 viendo Stranger Things (Episodio 1: IdEpisodio 1)
+(1, 1, '2026-05-01'),  
+
+-- Usuario 2 viendo Friends (Episodio 1, Temp 1: IdEpisodio 6)
+(2, 6, '2026-05-01'),  
+
+-- Usuario 6 viendo Cobra Kai (Episodio 1: IdEpisodio 15)
+(6, 15, '2026-05-02'), 
+
+-- Usuario 8 viendo Envidiosa (Episodio 1: IdEpisodio 11)
+(8, 11, '2026-05-03'), 
+
+-- Usuario 8 viendo El Encargado (Episodio 1: IdEpisodio 13)
+(8, 13, '2026-05-04'), 
+
+-- Usuario 9 viendo El Eternauta (Episodio 1: IdEpisodio 17)
+(9, 17, '2026-05-05'), 
+
+-- Usuario 1 sigue viendo Friends (Episodio 2, Temp 1: IdEpisodio 7)
+(1, 7, '2026-05-07'),  
+
+-- Usuario 4 arranca Stranger Things (Episodio 2: IdEpisodio 2)
+(4, 2, '2026-05-08');

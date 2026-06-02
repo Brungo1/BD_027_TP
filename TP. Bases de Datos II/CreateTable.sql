@@ -181,6 +181,7 @@ CREATE TABLE VisualizacionPelicula (
 GO
 
 -- Crear la tabla para el historial de episodios
+
 CREATE TABLE VisualizacionEpisodio (
   IdVisualizacionEpisodio bigint primary key not null identity(1,1),
   IdUsuario bigint not null foreign key references Usuarios(IdUsuario),
