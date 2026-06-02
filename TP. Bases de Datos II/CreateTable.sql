@@ -117,16 +117,6 @@ Create Table ContenidoActor (
   primary key (IdContenido, IdActor)
 )
 
--- Visualizacion quien vio la peli etc
-go
-Create Table Visualizacion(
-  Id bigint primary key not null identity (1,1),
-  IdUsuario bigint not null foreign key references Usuarios(IdUsuario),
-  IdContenido bigint not null foreign key references Contenido(IdContenido),
-  Fecha date not null default getdate(),
-  Unique (IdUsuario, IdContenido, Fecha)
-)
-
 -- Los Favoritos
 go
 Create Table Favoritos (
@@ -180,4 +170,22 @@ Create Table SeguirProductora (
   primary key (IdUsuario, IdProductora)
 )
 
+-- Crear la tabla para el historial de películas 
+CREATE TABLE VisualizacionPelicula (
+  IdVisualizacionPelicula bigint primary key not null identity(1,1),
+  IdUsuario bigint not null foreign key references Usuarios(IdUsuario),
+  IdContenido bigint not null foreign key references Contenido(IdContenido),
+  Fecha date not null default GETDATE(),
+  UNIQUE (IdUsuario, IdContenido, Fecha)
+);
+GO
 
+-- Crear la tabla para el historial de episodios
+CREATE TABLE VisualizacionEpisodio (
+  IdVisualizacionEpisodio bigint primary key not null identity(1,1),
+  IdUsuario bigint not null foreign key references Usuarios(IdUsuario),
+  IdEpisodio bigint not null foreign key references Episodio(IdEpisodio),
+  Fecha date not null default GETDATE(),
+  UNIQUE (IdUsuario, IdEpisodio, Fecha)
+);
+GO
